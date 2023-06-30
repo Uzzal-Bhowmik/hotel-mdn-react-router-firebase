@@ -3,13 +3,18 @@ import './Login.css';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../context/ContextAuth';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useExternalLoginFunc from '../../utilities/useExternalLoginFunc';
 
 const Login = () => {
     const [error, setError] = useState("");
 
     // using context value
-    const { signIn, signInGoogle } = useContext(AuthContext);
+    const { signIn } = useContext(AuthContext);
 
+    // using external sign in methods
+    const { handleGoogleLogin, handleGithubLogin, externalError } = useExternalLoginFunc();
+
+    // react router redirect 
     const navigate = useNavigate();
     const location = useLocation();
     const from = location?.state?.from?.pathname || "/";
@@ -24,7 +29,6 @@ const Login = () => {
 
         signIn(email, password)
             .then(result => {
-                console.log(result.user)
                 form.reset();
                 navigate(from, { replace: true });
             })
@@ -32,13 +36,10 @@ const Login = () => {
 
     }
 
-    const handleGoogleLogin = () => {
-        signInGoogle()
-            .then(result => navigate(from, { replace: true }))
-            .catch(error => setError(error))
+    // setting external error in the error state
+    if (!error && externalError) {
+        setError(externalError);
     }
-
-
 
 
     return (
@@ -79,7 +80,7 @@ const Login = () => {
                         <FaGoogle size="1.5em"></FaGoogle>
                     </div>
 
-                    <div className='border rounded-3 d-inline-block p-3 extra-login-icon me-4'>
+                    <div className='border rounded-3 d-inline-block p-3 extra-login-icon me-4' onClick={handleGithubLogin}>
                         <FaGithub size="1.5em"></FaGithub>
                     </div>
                 </div>

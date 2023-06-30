@@ -5,7 +5,6 @@ import { useLoaderData } from 'react-router-dom';
 
 const DynamicRoom = () => {
     const roomData = useLoaderData();
-    console.log(roomData);
 
     return (
         <div className='text-center fw-bold my-5'>

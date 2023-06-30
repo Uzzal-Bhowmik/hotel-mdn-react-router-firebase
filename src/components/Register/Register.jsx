@@ -3,12 +3,16 @@ import './Register.css';
 import { AuthContext } from '../../context/ContextAuth';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import useExternalLoginFunc from '../../utilities/useExternalLoginFunc';
 
 const Register = () => {
     const [error, setError] = useState("");
 
     // using context value
-    const { signUp, signInGoogle } = useContext(AuthContext);
+    const { signUp } = useContext(AuthContext);
+
+    const { handleGoogleLogin, handleGithubLogin, externalError } = useExternalLoginFunc();
+
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -20,21 +24,14 @@ const Register = () => {
 
         signUp(email, password)
             .then(result => {
-                console.log(result.user)
                 form.reset();
             })
             .catch(error => setError(error))
     }
 
-    const handleGoogleLogin = () => {
-        signInGoogle()
-            .then(result => {
-                console.log(result.user)
-            })
-            .catch(error => {
-                console.log("helo");
-                setError(error)
-            })
+    // setting external error in the error state
+    if (!error && externalError) {
+        setError(externalError);
     }
 
 
@@ -75,7 +72,7 @@ const Register = () => {
                         <FaGoogle size="1.5em"></FaGoogle>
                     </div>
 
-                    <div className='border rounded-3 d-inline-block p-3 extra-login-icon me-4'>
+                    <div className='border rounded-3 d-inline-block p-3 extra-login-icon me-4' onClick={handleGithubLogin}>
                         <FaGithub size="1.5em"></FaGithub>
                     </div>
                 </div>
