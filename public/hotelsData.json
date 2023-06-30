@@ -1,0 +1,42 @@
+[
+    {
+        "id": "superior",
+        "title": "Superior Room",
+        "m2": "30",
+        "adults": "2",
+        "children": "1",
+        "price": "199"
+    },
+    {
+        "id": "signature",
+        "title": "Signature Room",
+        "m2": "70",
+        "adults": "3",
+        "children": "2",
+        "price": "399"
+    },
+    {
+        "id": "delux",
+        "title": "Delux Room",
+        "m2": "55",
+        "adults": "3",
+        "children": "1",
+        "price": "299"
+    },
+    {
+        "id": "superior",
+        "title": "Superiro Room",
+        "m2": "30",
+        "adults": "2",
+        "children": "1",
+        "price": "199"
+    },
+    {
+        "id": "luxury",
+        "title": "Luxury Suite Room",
+        "m2": "120",
+        "adults": "4",
+        "children": "2",
+        "price": "599"
+    }
+]

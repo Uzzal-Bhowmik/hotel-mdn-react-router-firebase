@@ -1,0 +1,36 @@
+.form-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-styles {
+    width: 500px !important;
+    box-shadow: -7px 7px 0 #89cbfbaf;
+    border: 2px solid #89cbfbaf !important;
+}
+
+.register {
+    box-shadow: -7px 7px 0 #ffca2c !important;
+    border: 2px solid #ffca2c !important;
+}
+
+.form-styles button {
+    margin: 40px 0 !important;
+    margin-bottom: 20px !important;
+    display: block;
+}
+
+.divider {
+    background-color: lightgray;
+    margin: 20px 20px;
+    margin-top: 40px !important;
+}
+
+.extra-login-icon:hover {
+    box-shadow: 2px 2px 5px lightgray;
+    transition: all .2s linear;
+    cursor: pointer;
+    border: 1px solid rgb(1, 131, 212) !important;
+}
