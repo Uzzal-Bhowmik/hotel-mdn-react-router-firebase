@@ -87,7 +87,7 @@ const Header = () => {
                                 </Link>
                             </>}
 
-                        {user && (
+                        {user?.uid && (
                             <img
                                 src={`${user?.photoURL ? user.photoURL : "https://www.pngarts.com/files/10/Default-Profile-Picture-Download-PNG-Image.png"}`} alt=""
                                 style={{ width: "50px", borderRadius: "50%" }}

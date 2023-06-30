@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import './Register.css';
 import { AuthContext } from '../../context/ContextAuth';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import useExternalLoginFunc from '../../utilities/useExternalLoginFunc';
 
 const Register = () => {
